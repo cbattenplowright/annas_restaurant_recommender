@@ -35,5 +35,13 @@ public enum Cuisine {
         return displayCuisineName;
     }
 
+    public static Cuisine valueFromDisplayCuisineName (String displayCuisineName) {
+        for (Cuisine cuisine : values()) {
+            if (cuisine.displayCuisineName.equals(displayCuisineName)) {
+                return cuisine;
+            }
+        } return null;
+    }
+
 
 }

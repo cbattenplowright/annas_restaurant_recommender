@@ -31,8 +31,8 @@ public class DishService {
 //        add that cuisine list to Dish
 
         List<Cuisine> cuisineList = new ArrayList<>();
-        for (Long cuisineId : dishDTO.getCuisineIndexes()) {
-            cuisineList.add(Cuisine.values()[Math.toIntExact(cuisineId)]);
+        for (String cuisineName : dishDTO.getCuisineNames()) {
+            cuisineList.add(Cuisine.valueFromDisplayCuisineName(cuisineName));
         }
 
         Dish newDish = new Dish(
