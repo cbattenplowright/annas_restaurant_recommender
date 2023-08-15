@@ -2,15 +2,15 @@ package com.bnta.annas_restaurant_recommender.models;
 
 public class FilterDTO {
 
-    private Boolean vegetarianFilter;
-    private Boolean halalFilter;
-    private Boolean dairyFreeFilter;
-    private Boolean veganFilter;
+    private boolean vegetarianFilter;
+    private boolean halalFilter;
+    private boolean dairyFreeFilter;
+    private boolean veganFilter;
     private Borough boroughFilter;
     private Cuisine cuisineFilter;
     private PriceRange priceRangeFilter;
 
-    public FilterDTO(Boolean vegetarianFilter, Boolean halalFilter, Boolean dairyFreeFilter, Boolean veganFilter, Borough boroughFilter, Cuisine cuisineFilter, PriceRange priceRangeFilter) {
+    public FilterDTO(boolean vegetarianFilter, boolean halalFilter, boolean dairyFreeFilter, boolean veganFilter, Borough boroughFilter, Cuisine cuisineFilter, PriceRange priceRangeFilter) {
         this.vegetarianFilter = vegetarianFilter;
         this.halalFilter = halalFilter;
         this.dairyFreeFilter = dairyFreeFilter;
@@ -22,35 +22,36 @@ public class FilterDTO {
 
     public FilterDTO(){}
 
-    public Boolean getVegetarianFilter() {
+    //    GETTERS AND SETTERS
+    public boolean getVegetarianFilter() {
         return vegetarianFilter;
     }
 
-    public void setVegetarianFilter(Boolean vegetarianFilter) {
+    public void setVegetarianFilter(boolean vegetarianFilter) {
         this.vegetarianFilter = vegetarianFilter;
     }
 
-    public Boolean getHalalFilter() {
+    public boolean getHalalFilter() {
         return halalFilter;
     }
 
-    public void setHalalFilter(Boolean halalFilter) {
+    public void setHalalFilter(boolean halalFilter) {
         this.halalFilter = halalFilter;
     }
 
-    public Boolean getDairyFreeFilter() {
+    public boolean getDairyFreeFilter() {
         return dairyFreeFilter;
     }
 
-    public void setDairyFreeFilter(Boolean dairyFreeFilter) {
+    public void setDairyFreeFilter(boolean dairyFreeFilter) {
         this.dairyFreeFilter = dairyFreeFilter;
     }
 
-    public Boolean getVeganFilter() {
+    public boolean getVeganFilter() {
         return veganFilter;
     }
 
-    public void setVeganFilter(Boolean veganFilter) {
+    public void setVeganFilter(boolean veganFilter) {
         this.veganFilter = veganFilter;
     }
 

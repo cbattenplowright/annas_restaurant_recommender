@@ -23,6 +23,7 @@ public class RestaurantDTO {
     public RestaurantDTO() {
     }
 
+    //    GETTERS AND SETTERS
     public String getName() {
         return name;
     }

@@ -49,6 +49,8 @@ public class Dish {
 
     }
 
+    //    GETTERS AND SETTERS
+
     public Long getId() {
         return id;
     }
