@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class DishService {
@@ -17,5 +18,8 @@ public class DishService {
         return dishRepository.findAll();
     }
 
+    public Optional<Dish> findDishById(Long id){
+        return dishRepository.findById(id);
+    }
 
 }
