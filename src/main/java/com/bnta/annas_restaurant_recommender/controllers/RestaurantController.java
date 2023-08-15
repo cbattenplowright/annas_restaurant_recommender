@@ -35,6 +35,12 @@ public class RestaurantController {
         return new ResponseEntity<>(restaurantService.findAllRestaurants(), HttpStatus.OK);
     }
 
+//    UPDATE
+    @PutMapping(value = "/{id}")
+    public ResponseEntity<Restaurant> updateRestaurant(@RequestBody RestaurantDTO restaurantDTO, @PathVariable Long id){
+        Restaurant updatedRestaurant = restaurantService.updateRestaurant(restaurantDTO,id);
+        return new ResponseEntity<>(updatedRestaurant,HttpStatus.OK);
+    }
     
 
 
