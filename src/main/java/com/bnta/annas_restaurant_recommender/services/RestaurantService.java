@@ -21,4 +21,8 @@ public class RestaurantService {
         return restaurantRepository.findAll();
     }
 
+    public Restaurant findRestaurant(Long id){
+        return restaurantRepository.findById(id).get();
+    }
+
 }
