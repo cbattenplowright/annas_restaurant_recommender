@@ -35,8 +35,6 @@ public class Dish {
     @ManyToMany(mappedBy = "dishes")
     private List<Restaurant> restaurants;
 
-
-
     public Dish(String name, boolean vegetarian, boolean vegan, boolean dairyFree, boolean halal, List<Cuisine> cuisines) {
         this.name = name;
         this.vegetarian = vegetarian;
@@ -106,5 +104,13 @@ public class Dish {
 
     public void setCuisines(List<Cuisine> cuisines) {
         this.cuisines = cuisines;
+    }
+
+    public List<Restaurant> getRestaurants() {
+        return restaurants;
+    }
+
+    public void setRestaurants(List<Restaurant> restaurants) {
+        this.restaurants = restaurants;
     }
 }

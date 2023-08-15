@@ -36,14 +36,18 @@ public class DataLoader implements ApplicationRunner{
         Dish dish9 = new Dish("Hawaiian Pizza", false, false, false, false, List.of(Cuisine.AMERICAN, Cuisine.ITALIAN));
         Dish dish10 = new Dish("Burrito", false, false, false, false, List.of(Cuisine.AMERICAN, Cuisine.MEXICAN));
         Dish dish11 = new Dish("Chicken Souvlaki Banh Mi", false, false, false, true, List.of(Cuisine.GREEK, Cuisine.VIETNAMESE));
+        Dish dish12 = new Dish("Chicken wings and chips", false, false, false, true, List.of(Cuisine.BRITISH, Cuisine.AMERICAN));
+        Dish dish13 = new Dish("Wagyu Burger and chips", false, false, false, true, List.of(Cuisine.JAPANESE, Cuisine.AMERICAN));
 
+        dishRepository.saveAll(List.of(dish1, dish2, dish3, dish4, dish5, dish6, dish7, dish8, dish9, dish10, dish11, dish12, dish13));
 
-        dishRepository.saveAll(List.of(dish1, dish2, dish3, dish4, dish5, dish6, dish7, dish8, dish9, dish10, dish11));
-
-//        List<Restaurant> restaurants = new ArrayList<>();
-//        restaurants.add(new Restaurant("Bob's Kitchen", Borough.SOUTHWARK.getBoroughName(), PriceRange.MEDIUM.getDisplayPrice(), 3, ))
-
-
+        List<Restaurant> restaurants = new ArrayList<>();
+        restaurants.add(new Restaurant("Bob's Seafood Kitchen", Borough.SOUTHWARK, PriceRange.MEDIUM, 3, List.of(dish7, dish1)));
+        restaurants.add(new Restaurant("Morley's", Borough.LEWISHAM, PriceRange.LOW, 5, List.of(dish12, dish13)));
+        restaurants.add(new Restaurant("Circolo Popolare", Borough.WESTMINSTER, PriceRange.MEDIUM,5, List.of(dish2, dish5, dish9)));
+        restaurants.add(new Restaurant("Hakkasan", Borough.KENSINGTONANDCHELSEA, PriceRange.HIGH, 5, List.of(dish1, dish4)));
+        restaurants.add(new Restaurant("Van of Life", Borough.HACKNEY, PriceRange.LOW, 1, List.of(dish5, dish7, dish12, dish11, dish8)));
+        restaurantRepository.saveAll(restaurants);
 
     }
 }
