@@ -8,15 +8,13 @@ public class RestaurantDTO {
     private Borough borough;
     private PriceRange priceRange;
     private int rating;
-    private List<Long> cuisineIds;
     private List<Long> dishIds;
 
-    public RestaurantDTO(String name, Borough borough, PriceRange priceRange, int rating, List<Long> cuisineIds, List<Long> dishIds) {
+    public RestaurantDTO(String name, Borough borough, PriceRange priceRange, int rating, List<Long> dishIds) {
         this.name = name;
         this.borough = borough;
         this.priceRange = priceRange;
         this.rating = rating;
-        this.cuisineIds = cuisineIds;
         this.dishIds = dishIds;
     }
 
@@ -54,14 +52,6 @@ public class RestaurantDTO {
 
     public void setRating(int rating) {
         this.rating = rating;
-    }
-
-    public List<Long> getCuisineIds() {
-        return cuisineIds;
-    }
-
-    public void setCuisineIds(List<Long> cuisineIds) {
-        this.cuisineIds = cuisineIds;
     }
 
     public List<Long> getDishIds() {

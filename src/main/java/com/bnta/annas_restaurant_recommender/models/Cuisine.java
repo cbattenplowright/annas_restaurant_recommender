@@ -1,8 +1,12 @@
 package com.bnta.annas_restaurant_recommender.models;
 
+import jakarta.persistence.Entity;
+
+
 public enum Cuisine {
 
     AMERICAN ("American"),
+    BRITISH ("British"),
     CHINESE ("Chinese"),
     FRENCH ("French"),
     GREEK ("Greek"),

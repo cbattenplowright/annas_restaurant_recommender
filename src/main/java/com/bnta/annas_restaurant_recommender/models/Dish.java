@@ -29,10 +29,11 @@ public class Dish {
     @Column
     private boolean halal;
 
+    private List<Cuisine> cuisines;
 
     @JsonIgnoreProperties({"dishes"})
     @ManyToMany(mappedBy = "dishes")
-    private List<Cuisine> cuisines;
+    private List<Restaurant> restaurants;
 
 
 
