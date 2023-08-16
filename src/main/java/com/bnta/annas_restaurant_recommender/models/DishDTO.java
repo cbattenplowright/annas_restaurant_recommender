@@ -21,7 +21,6 @@ public class DishDTO {
     }
 
     public DishDTO(){
-
     }
 
     //    GETTERS AND SETTERS

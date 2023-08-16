@@ -58,12 +58,4 @@ public enum Borough {
         } return result;
     }
 
-//    public static Borough valueFromDisplayBoroughName(String displayBoroughName){
-//        for (Borough borough: values()){
-//            if(borough.displayBoroughName.equals(displayBoroughName)){
-//                return borough;
-//            }
-//        } return null;
-//    }
-
 }

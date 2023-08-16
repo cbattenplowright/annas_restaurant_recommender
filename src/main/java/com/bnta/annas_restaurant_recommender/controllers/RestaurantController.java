@@ -42,7 +42,6 @@ public class RestaurantController {
             return new ResponseEntity<>(restaurantService.findAllRestaurants(), HttpStatus.OK);
         }
 
-
     }
 
 //    SHOW

@@ -43,5 +43,16 @@ public enum Cuisine {
         } return null;
     }
 
+    public static Cuisine findByName(String name){
+        Cuisine result = null;
+        for (Cuisine cuisine : values()){
+            if (cuisine.name().equalsIgnoreCase(name)){
+                result = cuisine;
+                break;
+            }
+        } return result;
+    }
+
+
 
 }
