@@ -1,5 +1,7 @@
 package com.bnta.annas_restaurant_recommender.models;
 
+import java.util.List;
+
 public class FilterDTO {
 
     private boolean vegetarianFilter;
@@ -7,10 +9,10 @@ public class FilterDTO {
     private boolean dairyFreeFilter;
     private boolean veganFilter;
     private Borough boroughFilter;
-    private Cuisine cuisineFilter;
+    private List<Cuisine> cuisineFilter;
     private PriceRange priceRangeFilter;
 
-    public FilterDTO(boolean vegetarianFilter, boolean halalFilter, boolean dairyFreeFilter, boolean veganFilter, Borough boroughFilter, Cuisine cuisineFilter, PriceRange priceRangeFilter) {
+    public FilterDTO(boolean vegetarianFilter, boolean halalFilter, boolean dairyFreeFilter, boolean veganFilter, Borough boroughFilter, List<Cuisine> cuisineFilter, PriceRange priceRangeFilter) {
         this.vegetarianFilter = vegetarianFilter;
         this.halalFilter = halalFilter;
         this.dairyFreeFilter = dairyFreeFilter;
@@ -63,11 +65,11 @@ public class FilterDTO {
         this.boroughFilter = boroughFilter;
     }
 
-    public Cuisine getCuisineFilter() {
+    public List<Cuisine> getCuisineFilter() {
         return cuisineFilter;
     }
 
-    public void setCuisineFilter(Cuisine cuisineFilter) {
+    public void setCuisineFilter(List<Cuisine> cuisineFilter) {
         this.cuisineFilter = cuisineFilter;
     }
 
