@@ -16,7 +16,8 @@ public class Restaurant {
     @Column
     private String name;
 
-    @Column
+    @Enumerated(EnumType.STRING)
+//    @Column
     private Borough borough;
 
     @Column(name = "price_range")

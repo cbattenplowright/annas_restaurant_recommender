@@ -1,5 +1,8 @@
 package com.bnta.annas_restaurant_recommender.models;
 
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+
 public enum Borough {
 
     BARKINGANDDAGENHAM("Barking and Dagenham"),
@@ -45,14 +48,22 @@ public enum Borough {
         return displayBoroughName;
     }
 
-    public static String findByName(String name){
-        String result = null;
+    public static Borough findByName(String name){
+        Borough result = null;
         for (Borough borough : values()){
             if (borough.name().equalsIgnoreCase(name)){
-                result = borough.displayBoroughName;
+                result = borough;
                 break;
             }
         } return result;
     }
+
+//    public static Borough valueFromDisplayBoroughName(String displayBoroughName){
+//        for (Borough borough: values()){
+//            if(borough.displayBoroughName.equals(displayBoroughName)){
+//                return borough;
+//            }
+//        } return null;
+//    }
 
 }

@@ -31,7 +31,7 @@ public class RestaurantController {
         // if request parameters does not exist return all restaurants
 
         if (borough != null){
-            String foundBorough = Borough.findByName(borough);
+            Borough foundBorough = Borough.findByName(borough);
             if (foundBorough != null) {
                 return new ResponseEntity<>(restaurantService.getRestaurantsByBorough(foundBorough), HttpStatus.OK);
             } else{
