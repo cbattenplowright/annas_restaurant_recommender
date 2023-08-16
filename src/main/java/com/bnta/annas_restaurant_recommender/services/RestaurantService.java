@@ -58,4 +58,8 @@ public class RestaurantService {
         restaurantRepository.deleteById(id);
     }
 
+    public List<Restaurant> getRestaurantsByBorough(String borough){
+        return restaurantRepository.findByBorough(borough);
+    }
+
 }

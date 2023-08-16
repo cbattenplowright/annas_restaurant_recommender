@@ -44,4 +44,15 @@ public enum Borough {
     public String getBoroughName() {
         return displayBoroughName;
     }
+
+    public static String findByName(String name){
+        String result = null;
+        for (Borough borough : values()){
+            if (borough.name().equalsIgnoreCase(name)){
+                result = borough.displayBoroughName;
+                break;
+            }
+        } return result;
+    }
+
 }

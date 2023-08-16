@@ -1,5 +1,6 @@
 package com.bnta.annas_restaurant_recommender.controllers;
 
+import com.bnta.annas_restaurant_recommender.models.Borough;
 import com.bnta.annas_restaurant_recommender.models.Restaurant;
 import com.bnta.annas_restaurant_recommender.models.RestaurantDTO;
 import com.bnta.annas_restaurant_recommender.services.RestaurantService;
@@ -20,10 +21,31 @@ public class RestaurantController {
 
 //    INDEX
     @GetMapping
-    public ResponseEntity<List<Restaurant>> getAllRestaurants(){
-        return new ResponseEntity<>(restaurantService.findAllRestaurants(), HttpStatus.OK);
+    public ResponseEntity<List<Restaurant>> getRestaurants(@RequestParam(required = false, name = "borough") String borough){
+        // /restaurants?borough
+        // filters from request parameters
+        // check if request parameters exist
+        // if exists, return corresponding list of restaurants
+            // if borough matches, return restaurants
+            // else return error
+        // if request parameters does not exist return all restaurants
+
+        if (borough != null){
+            String foundBorough = Borough.findByName(borough);
+            if (foundBorough != null) {
+                return new ResponseEntity<>(restaurantService.getRestaurantsByBorough(foundBorough), HttpStatus.OK);
+            } else{
+                return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+            }
+
+        } else {
+            return new ResponseEntity<>(restaurantService.findAllRestaurants(), HttpStatus.OK);
+        }
+
+
     }
 
+//    SHOW
     @GetMapping(value = "/{id}")
     public ResponseEntity<Optional<Restaurant>> getRestaurantById(@PathVariable Long id){
         Optional<Restaurant> foundRestaurant = restaurantService.findRestaurant(id);
