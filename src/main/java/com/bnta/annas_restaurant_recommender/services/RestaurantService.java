@@ -1,14 +1,12 @@
 package com.bnta.annas_restaurant_recommender.services;
 
-import com.bnta.annas_restaurant_recommender.models.Borough;
-import com.bnta.annas_restaurant_recommender.models.Dish;
-import com.bnta.annas_restaurant_recommender.models.Restaurant;
-import com.bnta.annas_restaurant_recommender.models.RestaurantDTO;
+import com.bnta.annas_restaurant_recommender.models.*;
 import com.bnta.annas_restaurant_recommender.repositories.DishRepository;
 import com.bnta.annas_restaurant_recommender.repositories.RestaurantRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.print.ServiceUI;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -61,6 +59,16 @@ public class RestaurantService {
 
     public List<Restaurant> getRestaurantsByBorough(Borough borough){
         return restaurantRepository.findByBorough(borough);
+    }
+
+    public List<Restaurant> getRestaurantByCuisine(List<String> cuisines){
+        List<Cuisine> cuisines
+        for (String cuisine: cuisines){
+            Cuisine.findByName(cuisine);
+        }
+        List<Dish> dishes = restaurantRepository.findByDishesCuisines(cuisines);
+        List<Restaurant> listOfRestaurants = restaurantRepository.findByDishes(dishes);
+        return listOfRestaurants;
     }
 
 }

@@ -4,10 +4,10 @@ import java.util.List;
 
 public class FilterDTO {
 
-    private boolean vegetarianFilter;
-    private boolean halalFilter;
-    private boolean dairyFreeFilter;
-    private boolean veganFilter;
+    private Boolean vegetarianFilter;
+    private Boolean halalFilter;
+    private Boolean dairyFreeFilter;
+    private Boolean veganFilter;
     private Borough boroughFilter;
     private List<Cuisine> cuisineFilter;
     private PriceRange priceRangeFilter;
@@ -25,35 +25,36 @@ public class FilterDTO {
     public FilterDTO(){}
 
     //    GETTERS AND SETTERS
-    public boolean getVegetarianFilter() {
+
+    public Boolean getVegetarianFilter() {
         return vegetarianFilter;
     }
 
-    public void setVegetarianFilter(boolean vegetarianFilter) {
+    public void setVegetarianFilter(Boolean vegetarianFilter) {
         this.vegetarianFilter = vegetarianFilter;
     }
 
-    public boolean getHalalFilter() {
+    public Boolean getHalalFilter() {
         return halalFilter;
     }
 
-    public void setHalalFilter(boolean halalFilter) {
+    public void setHalalFilter(Boolean halalFilter) {
         this.halalFilter = halalFilter;
     }
 
-    public boolean getDairyFreeFilter() {
+    public Boolean getDairyFreeFilter() {
         return dairyFreeFilter;
     }
 
-    public void setDairyFreeFilter(boolean dairyFreeFilter) {
+    public void setDairyFreeFilter(Boolean dairyFreeFilter) {
         this.dairyFreeFilter = dairyFreeFilter;
     }
 
-    public boolean getVeganFilter() {
+    public Boolean getVeganFilter() {
         return veganFilter;
     }
 
-    public void setVeganFilter(boolean veganFilter) {
+    public void setVeganFilter(Boolean veganFilter) {
         this.veganFilter = veganFilter;
     }
 
@@ -80,4 +81,6 @@ public class FilterDTO {
     public void setPriceRangeFilter(PriceRange priceRangeFilter) {
         this.priceRangeFilter = priceRangeFilter;
     }
+
+
 }

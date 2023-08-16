@@ -20,7 +20,10 @@ public class RestaurantController {
 
     //    INDEX
     @GetMapping
-    public ResponseEntity<List<Restaurant>> getRestaurants(@RequestParam(required = false, name = "borough") String borough, @RequestParam(required = false, name = "cuisine") String cuisine) {
+    public ResponseEntity<List<Restaurant>> getRestaurants(@RequestParam(required = false, name = "borough") String borough, @RequestParam(required = false, name = "cuisine") List<String> cuisines) {
+
+        FilterDTO filterDTO = new FilterDTO();
+
         // /restaurants?borough
         // filters from request parameters
         // check if request parameters exist
@@ -32,36 +35,42 @@ public class RestaurantController {
 //        TODO logic with DTO if parameter exists change filterDTO to true or false, need to refactor in the end adding logic to RestaurantService
 //        Change which ever DTO property has been entered as a request parameter
 //        Checks borough
-        FilterDTO filterDTO = new FilterDTO();
-        boolean invalidUrl = false;
-        if (borough != null) {
-            Borough foundBorough = Borough.findByName(borough);
-            if (foundBorough != null) {
-                filterDTO.setBoroughFilter(foundBorough);
-//                        new ResponseEntity<>(restaurantService.getRestaurantsByBorough(foundBorough), HttpStatus.OK);
-            } else {
-                invalidUrl = true;
-            }
-        }
-//        Checks cuisine
-        if (cuisine != null) {
 
-            Cuisine foundCuisine = Cuisine.findByName(cuisine);
-            List<Cuisine> foundCuisines = new ArrayList<>();
-            if (foundCuisine != null) {
-                foundCuisines.add(foundCuisine);
-                filterDTO.setCuisineFilter(foundCuisines);
-            } else {
-                invalidUrl = true;
-            }
-// Still need to add response entity for cuisine filter
-        }
-        if (invalidUrl){
-            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
-        }
-        else {
-            return new ResponseEntity<>(restaurantService.findAllRestaurants(), HttpStatus.OK);
-        }
+
+
+//        boolean invalidUrl = false;
+//        if (borough != null) {
+//            Borough foundBorough = Borough.findByName(borough);
+//            if (foundBorough != null) {
+//                filterDTO.setBoroughFilter(foundBorough);
+////                        new ResponseEntity<>(restaurantService.getRestaurantsByBorough(foundBorough), HttpStatus.OK);
+//            } else {
+//                invalidUrl = true;
+//            }
+//        }
+////        Checks cuisine
+//        if (cuisines != null) {
+//            for (String cuisine : cuisines){
+//                Cuisine foundCuisine = Cuisine.findByName(cuisine);
+//                List<Cuisine> foundCuisines = new ArrayList<>();
+//                if (foundCuisine != null) {
+//                    foundCuisines.add(foundCuisine);
+//                    filterDTO.setCuisineFilter(foundCuisines);
+//                    return new ResponseEntity<>(restaurantService.getRestaurantByCuisine(cuisines),HttpStatus.OK);
+//                } else {
+//                    invalidUrl = true;
+//                }
+//            }
+//
+//// Still need to add response entity for cuisine filter
+//        }
+//
+//        if (invalidUrl){
+//            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+//        }
+//        else {
+//            return new ResponseEntity<>(restaurantService.findAllRestaurants(), HttpStatus.OK);
+//        }
 
 
     }
