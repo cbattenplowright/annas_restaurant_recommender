@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class RestaurantService {
@@ -24,8 +25,8 @@ public class RestaurantService {
         return restaurantRepository.findAll();
     }
 
-    public Restaurant findRestaurant(Long id){
-        return restaurantRepository.findById(id).get();
+    public Optional<Restaurant> findRestaurant(Long id){
+        return restaurantRepository.findById(id);
     }
 
     public Restaurant saveRestaurant (RestaurantDTO restaurantDTO){
@@ -51,6 +52,10 @@ public class RestaurantService {
         restaurantToUpdate.setDishes(dishes);
         restaurantRepository.save(restaurantToUpdate);
         return restaurantToUpdate;
+    }
+
+    public void deleteRestaurant (Long id){
+        restaurantRepository.deleteById(id);
     }
 
 }
