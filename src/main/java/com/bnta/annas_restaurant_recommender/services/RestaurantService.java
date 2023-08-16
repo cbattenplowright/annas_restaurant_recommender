@@ -1,5 +1,6 @@
 package com.bnta.annas_restaurant_recommender.services;
 
+import com.bnta.annas_restaurant_recommender.models.Borough;
 import com.bnta.annas_restaurant_recommender.models.Dish;
 import com.bnta.annas_restaurant_recommender.models.Restaurant;
 import com.bnta.annas_restaurant_recommender.models.RestaurantDTO;
@@ -56,6 +57,10 @@ public class RestaurantService {
 
     public void deleteRestaurant (Long id){
         restaurantRepository.deleteById(id);
+    }
+
+    public List<Restaurant> getRestaurantsByBorough(Borough borough){
+        return restaurantRepository.findByBorough(borough);
     }
 
 }
