@@ -1,6 +1,7 @@
 package com.bnta.annas_restaurant_recommender.controllers;
 
 import com.bnta.annas_restaurant_recommender.models.Borough;
+import com.bnta.annas_restaurant_recommender.models.Cuisine;
 import com.bnta.annas_restaurant_recommender.models.Restaurant;
 import com.bnta.annas_restaurant_recommender.models.RestaurantDTO;
 import com.bnta.annas_restaurant_recommender.services.RestaurantService;
@@ -21,7 +22,7 @@ public class RestaurantController {
 
 //    INDEX
     @GetMapping
-    public ResponseEntity<List<Restaurant>> getRestaurants(@RequestParam(required = false, name = "borough") String borough){
+    public ResponseEntity<List<Restaurant>> getRestaurants(@RequestParam(required = false, name = "borough") String borough, @RequestParam (required = false, name = "cuisine") String cuisine){
         // /restaurants?borough
         // filters from request parameters
         // check if request parameters exist
@@ -30,6 +31,7 @@ public class RestaurantController {
             // else return error
         // if request parameters does not exist return all restaurants
 
+//        TODO logic with DTO if parameter exists change filterDTO to true or false, need to refactor in the end adding logic to RestaurantService
         if (borough != null){
             Borough foundBorough = Borough.findByName(borough);
             if (foundBorough != null) {
@@ -37,8 +39,8 @@ public class RestaurantController {
             } else{
                 return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
             }
-
-        } else {
+        }
+        else {
             return new ResponseEntity<>(restaurantService.findAllRestaurants(), HttpStatus.OK);
         }
 

@@ -60,4 +60,12 @@ public class DishService {
         dishRepository.delete(dish);
     }
 
+    public List<Cuisine> checkCuisineExists(DishDTO dishDTO) {
+        List<Cuisine> findCuisine = new ArrayList<>();
+        for (String cuisineName : dishDTO.getCuisineNames()) {
+            findCuisine.add(Cuisine.findByName(cuisineName));
+        }
+        return findCuisine;
+    }
+
 }

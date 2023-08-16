@@ -42,10 +42,7 @@ public class DishController {
     //    CREATE
     @PostMapping
     public ResponseEntity<Dish> addDish(@RequestBody DishDTO dishDTO) {
-        List<Cuisine> findCuisine = new ArrayList<>();
-        for (String cuisineName : dishDTO.getCuisineNames()) {
-            findCuisine.add(Cuisine.findByName(cuisineName));
-        }
+        List<Cuisine> findCuisine = dishService.checkCuisineExists(dishDTO);
         if (findCuisine.contains(null)) {
             return new ResponseEntity<>(null, HttpStatus.UNPROCESSABLE_ENTITY);
         } else {
