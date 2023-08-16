@@ -29,6 +29,7 @@ public class Dish {
     @Column
     private boolean halal;
 
+    @Enumerated(EnumType.STRING)
     private List<Cuisine> cuisines;
 
     @JsonIgnoreProperties({"dishes"})
