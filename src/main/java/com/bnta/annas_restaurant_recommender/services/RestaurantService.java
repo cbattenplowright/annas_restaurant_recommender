@@ -28,13 +28,13 @@ public class RestaurantService {
         return restaurantRepository.findById(id).get();
     }
 
-    public void saveRestaurant (RestaurantDTO restaurantDTO){
+    public Restaurant saveRestaurant (RestaurantDTO restaurantDTO){
         List<Dish> dishes = new ArrayList<>();
         for (Long dishId : restaurantDTO.getDishIds()){
             dishes.add(dishRepository.findById(dishId).get());
         }
         Restaurant restaurant = new Restaurant(restaurantDTO.getName(), restaurantDTO.getBorough(), restaurantDTO.getPriceRange(), restaurantDTO.getRating(), dishes);
-        restaurantRepository.save(restaurant);
+        return restaurantRepository.save(restaurant);
     }
 
     public Restaurant updateRestaurant(RestaurantDTO restaurantDTO,Long id){

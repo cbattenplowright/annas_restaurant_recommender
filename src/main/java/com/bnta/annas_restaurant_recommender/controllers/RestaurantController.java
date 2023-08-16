@@ -30,9 +30,9 @@ public class RestaurantController {
 
 //    CREATE
     @PostMapping
-    public ResponseEntity <List<Restaurant>> addRestaurant(@RequestBody RestaurantDTO restaurantDTO){
-        restaurantService.saveRestaurant(restaurantDTO);
-        return new ResponseEntity<>(restaurantService.findAllRestaurants(), HttpStatus.OK);
+    public ResponseEntity<Restaurant> addRestaurant(@RequestBody RestaurantDTO restaurantDTO){
+        Restaurant newRestaurant = restaurantService.saveRestaurant(restaurantDTO);
+        return new ResponseEntity<>(newRestaurant, HttpStatus.CREATED);
     }
 
 //    UPDATE
@@ -41,7 +41,5 @@ public class RestaurantController {
         Restaurant updatedRestaurant = restaurantService.updateRestaurant(restaurantDTO,id);
         return new ResponseEntity<>(updatedRestaurant,HttpStatus.OK);
     }
-    
-
 
 }
