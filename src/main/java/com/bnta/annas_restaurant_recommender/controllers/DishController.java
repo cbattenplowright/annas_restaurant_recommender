@@ -43,4 +43,18 @@ public class DishController {
         return new ResponseEntity<>(dishService.saveDish(dishDTO), HttpStatus.CREATED);
     }
 
+
+//    DELETE
+    @DeleteMapping(value = "/{id}")
+    public ResponseEntity<Long> removeDish (@PathVariable Long id){
+        Optional<Dish> foundDish = dishService.findDishById(id);
+        if (foundDish.isPresent()){
+            dishService.removeDish(id);
+            return new ResponseEntity<>(id, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+        }
+
+    }
+
 }

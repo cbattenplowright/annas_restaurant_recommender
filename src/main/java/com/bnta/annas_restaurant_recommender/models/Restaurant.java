@@ -43,6 +43,10 @@ public class Restaurant {
 
     public Restaurant(){}
 
+    public void removeDish(Dish dish){
+        this.dishes.remove(dish);
+    }
+
     //    GETTERS AND SETTERS
     public Long getId() {
         return id;

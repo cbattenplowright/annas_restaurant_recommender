@@ -3,7 +3,9 @@ package com.bnta.annas_restaurant_recommender.services;
 import com.bnta.annas_restaurant_recommender.models.Cuisine;
 import com.bnta.annas_restaurant_recommender.models.Dish;
 import com.bnta.annas_restaurant_recommender.models.DishDTO;
+import com.bnta.annas_restaurant_recommender.models.Restaurant;
 import com.bnta.annas_restaurant_recommender.repositories.DishRepository;
+import com.bnta.annas_restaurant_recommender.repositories.RestaurantRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +18,9 @@ public class DishService {
 
     @Autowired
     DishRepository dishRepository;
+
+    @Autowired
+    RestaurantRepository restaurantRepository;
 
     public List<Dish> findAllDishes() {
         return dishRepository.findAll();
@@ -45,6 +50,17 @@ public class DishService {
 
         dishRepository.save(newDish);
         return newDish;
+    }
+
+    public void removeDish(Long id){
+        Dish dish = dishRepository.findById(id).get();
+        for (Restaurant restaurant : dish.getRestaurants()){
+            restaurant.removeDish(dish);
+        }
+        dishRepository.delete(dish);
+
+
+
     }
 
 }
