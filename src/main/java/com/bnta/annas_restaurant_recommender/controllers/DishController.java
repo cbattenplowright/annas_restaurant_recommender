@@ -18,11 +18,13 @@ public class DishController {
     @Autowired
     DishService dishService;
 
+//    INDEX
     @GetMapping
     public ResponseEntity<List<Dish>> getAllDishes(){
         return new ResponseEntity<>(dishService.findAllDishes(), HttpStatus.OK);
     }
 
+//    SHOW
     @GetMapping(value = "/{id}")
     public ResponseEntity<Optional<Dish>> getDishById(@PathVariable Long id){
         Optional<Dish> foundDish = dishService.findDishById(id);
@@ -35,6 +37,7 @@ public class DishController {
 
     }
 
+//    CREATE
     @PostMapping
     public ResponseEntity<Dish> addDish(@RequestBody DishDTO dishDTO){
         return new ResponseEntity<>(dishService.saveDish(dishDTO), HttpStatus.CREATED);
