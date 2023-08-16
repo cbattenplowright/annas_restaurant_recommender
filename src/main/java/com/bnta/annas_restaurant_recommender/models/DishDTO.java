@@ -9,15 +9,15 @@ public class DishDTO {
     private boolean vegan;
     private boolean dairyFree;
     private boolean halal;
-    private List<Long> cuisineIds;
+    private List<String> cuisineNames;
 
-    public DishDTO(String name, boolean vegetarian, boolean vegan, boolean dairyFree, boolean halal, List<Long> cuisineIds) {
+    public DishDTO(String name, boolean vegetarian, boolean vegan, boolean dairyFree, boolean halal, List<String> cuisineNames) {
         this.name = name;
         this.vegetarian = vegetarian;
         this.vegan = vegan;
         this.dairyFree = dairyFree;
         this.halal = halal;
-        this.cuisineIds = cuisineIds;
+        this.cuisineNames = cuisineNames;
     }
 
     public DishDTO(){
@@ -66,11 +66,11 @@ public class DishDTO {
         this.halal = halal;
     }
 
-    public List<Long> getCuisineIds() {
-        return cuisineIds;
+    public List<String> getCuisineNames() {
+        return cuisineNames;
     }
 
-    public void setCuisineIds(List<Long> cuisineIds) {
-        this.cuisineIds = cuisineIds;
+    public void setCuisineNames(List<String> cuisineNames) {
+        this.cuisineNames = cuisineNames;
     }
 }
