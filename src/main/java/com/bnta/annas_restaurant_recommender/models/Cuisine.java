@@ -28,31 +28,35 @@ public enum Cuisine {
     private final String displayCuisineName;
 
     Cuisine (String displayCuisineName){
+
         this.displayCuisineName = displayCuisineName;
     }
 
     public String getCuisineName(){
+
         return displayCuisineName;
     }
 
     public static Cuisine valueFromDisplayCuisineName (String displayCuisineName) {
+
         for (Cuisine cuisine : values()) {
             if (cuisine.displayCuisineName.equals(displayCuisineName)) {
                 return cuisine;
             }
-        } return null;
+        }
+        return null;
     }
 
     public static Cuisine findByName(String cuisineName){
+
         Cuisine result = null;
+
         for (Cuisine cuisine : values()){
             if (cuisine.name().equalsIgnoreCase(cuisineName)){
                 result = cuisine;
                 break;
             }
-        } return result;
+        }
+        return result;
     }
-
-
-
 }

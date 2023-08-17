@@ -26,15 +26,9 @@ public class RestaurantController {
         filterDTO.setBoroughFilter(borough);
         filterDTO.setCuisineFilter(cuisine);
 
-
         List<Restaurant> restaurants = restaurantService.getRestaurantsByFilters(filterDTO);
-//        if (restaurants.isEmpty()){
-//            return new ResponseEntity<>(restaurants, HttpStatus.OK);
-//        }
+
         return new ResponseEntity<>(restaurants, HttpStatus.OK);
-
-
-
 
         // /restaurants?borough
         // filters from request parameters
@@ -49,7 +43,9 @@ public class RestaurantController {
     //    SHOW
     @GetMapping(value = "/{id}")
     public ResponseEntity<Optional<Restaurant>> getRestaurantById(@PathVariable Long id) {
+
         Optional<Restaurant> foundRestaurant = restaurantService.findRestaurant(id);
+
         if (foundRestaurant.isPresent()) {
             return new ResponseEntity<>(restaurantService.findRestaurant(id), HttpStatus.OK);
         } else {
@@ -60,28 +56,32 @@ public class RestaurantController {
     //    CREATE
     @PostMapping
     public ResponseEntity<Restaurant> addRestaurant(@RequestBody RestaurantDTO restaurantDTO) {
+
         Restaurant newRestaurant = restaurantService.saveRestaurant(restaurantDTO);
+
         return new ResponseEntity<>(newRestaurant, HttpStatus.CREATED);
     }
 
     //    UPDATE
     @PutMapping(value = "/{id}")
     public ResponseEntity<Restaurant> updateRestaurant(@RequestBody RestaurantDTO restaurantDTO, @PathVariable Long id) {
+
         Restaurant updatedRestaurant = restaurantService.updateRestaurant(restaurantDTO, id);
+
         return new ResponseEntity<>(updatedRestaurant, HttpStatus.OK);
     }
 
 //    DELETE
-
     @DeleteMapping(value = "/{id}")
     public ResponseEntity<Long> deleteRestaurant(@PathVariable Long id) {
+
         Optional<Restaurant> foundRestaurant = restaurantService.findRestaurant(id);
+
         if (foundRestaurant.isPresent()) {
             restaurantService.deleteRestaurant(id);
             return new ResponseEntity<>(id, HttpStatus.OK);
         } else {
             return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
         }
-
     }
 }

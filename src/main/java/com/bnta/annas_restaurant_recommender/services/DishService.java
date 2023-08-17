@@ -19,9 +19,6 @@ public class DishService {
     @Autowired
     DishRepository dishRepository;
 
-    @Autowired
-    RestaurantRepository restaurantRepository;
-
     public List<Dish> findAllDishes() {
         return dishRepository.findAll();
     }
@@ -32,8 +29,8 @@ public class DishService {
 
     public Dish saveDish(DishDTO dishDTO) {
 
-//        get cuisines by cuisine ids
-//        add that cuisine list to Dish
+//        get cuisine by cuisine id
+//        add that cuisine to Dish
 
         Cuisine cuisine = Cuisine.valueFromDisplayCuisineName(dishDTO.getCuisineName());
 
@@ -46,11 +43,14 @@ public class DishService {
                 cuisine);
 
         dishRepository.save(newDish);
+
         return newDish;
     }
 
     public void removeDish(Long id){
+
         Dish dish = dishRepository.findById(id).get();
+
         for (Restaurant restaurant : dish.getRestaurants()){
             restaurant.removeDish(dish);
         }
@@ -58,8 +58,9 @@ public class DishService {
     }
 
     public Cuisine checkCuisineExists(DishDTO dishDTO) {
+
         Cuisine findCuisine = Cuisine.findByName(dishDTO.getCuisineName());
+
         return findCuisine;
     }
-
 }

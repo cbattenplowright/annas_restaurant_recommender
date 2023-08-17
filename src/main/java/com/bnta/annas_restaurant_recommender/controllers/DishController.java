@@ -50,7 +50,6 @@ public class DishController {
         }
     }
 
-
     //    DELETE
     @DeleteMapping(value = "/{id}")
     public ResponseEntity<Long> removeDish(@PathVariable Long id) {

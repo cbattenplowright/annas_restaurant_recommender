@@ -41,21 +41,25 @@ public enum Borough {
     private final String displayBoroughName;
 
     Borough(String displayBoroughName) {
+
         this.displayBoroughName = displayBoroughName;
     }
 
     public String getBoroughName() {
+
         return displayBoroughName;
     }
 
     public static Borough findByName(String name){
+
         Borough result = null;
+
         for (Borough borough : values()){
             if (borough.name().equalsIgnoreCase(name)){
                 result = borough;
                 break;
             }
-        } return result;
+        }
+        return result;
     }
-
 }
