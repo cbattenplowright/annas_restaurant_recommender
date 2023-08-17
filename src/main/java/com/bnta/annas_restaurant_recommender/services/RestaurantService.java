@@ -60,13 +60,14 @@ public class RestaurantService {
     }
 
 
-    public Optional<List<Restaurant>> getRestaurantsByFilters(FilterDTO filterDTO){
+    public List<Restaurant> getRestaurantsByFilters(FilterDTO filterDTO){
         Borough borough = Borough.findByName(filterDTO.getBoroughFilter());
         Cuisine cuisine = Cuisine.findByName(filterDTO.getCuisineFilter());
 
         List<Restaurant> restaurants = restaurantRepository.findAll();
         List<Restaurant> restaurantsByBorough = null;
         List<Restaurant> restaurantsByCuisine = null;
+
         if (borough != null) {
             restaurantsByBorough = restaurantRepository.findByBorough(borough);
             restaurants = restaurants.stream()
@@ -80,7 +81,7 @@ public class RestaurantService {
                     .collect(Collectors.toList());
         }
 
-        Optional<List<Restaurant>> optionalRestaurantList = Optional.ofNullable(restaurants).filter(Predicate.not(restaurants::isEmpty));
+        return restaurants;
 
     }
 }

@@ -20,7 +20,7 @@ public class RestaurantController {
 
     //    INDEX
     @GetMapping
-    public ResponseEntity<Optional<List<Restaurant>>> getRestaurants(@RequestParam(required = false, name = "borough") String borough, @RequestParam(required = false, name = "cuisine") String cuisine) {
+    public ResponseEntity<List<Restaurant>> getRestaurants(@RequestParam(required = false, name = "borough") String borough, @RequestParam(required = false, name = "cuisine") String cuisine) {
 
         FilterDTO filterDTO = new FilterDTO();
         filterDTO.setBoroughFilter(borough);
@@ -28,14 +28,9 @@ public class RestaurantController {
 
 //        Cuisine isCuisine = Cuisine.findByName(cuisine);
 //        Borough isBorough = Borough.findByName(borough);
-        Optional<List<Restaurant>> restaurants = restaurantService.getRestaurantsByFilters(filterDTO);
+        List<Restaurant> restaurants = restaurantService.getRestaurantsByFilters(filterDTO);
+        return new ResponseEntity<>(restaurants, HttpStatus.OK);
 
-        if (!restaurants.isPresent()) {
-            return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
-
-        } else {
-            return new ResponseEntity<>(restaurants, HttpStatus.OK);
-        }
 
 //        if (!Borough.findByName(borough).getBoroughName().equalsIgnoreCase(borough)){
 //            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
