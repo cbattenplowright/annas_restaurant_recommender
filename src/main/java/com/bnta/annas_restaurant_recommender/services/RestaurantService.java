@@ -10,6 +10,7 @@ import javax.print.ServiceUI;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 @Service
@@ -58,23 +59,11 @@ public class RestaurantService {
         restaurantRepository.deleteById(id);
     }
 
-//    public List<Restaurant> getRestaurantsByBorough(Borough borough){
-//        return restaurantRepository.findByBorough(borough);
-//    }
 
-//    public List<Restaurant> getRestaurantByCuisine(List<String> cuisines){
-//        List<Cuisine> cuisines
-//        for (String cuisine: cuisines){
-//            Cuisine.findByName(cuisine);
-//        }
-//        List<Dish> dishes = restaurantRepository.findByDishesCuisines(cuisines);
-//        List<Restaurant> listOfRestaurants = restaurantRepository.findByDishes(dishes);
-//        return listOfRestaurants;
-//    }
-
-    public List<Restaurant> getRestaurantsByFilters(FilterDTO filterDTO){
+    public Optional<List<Restaurant>> getRestaurantsByFilters(FilterDTO filterDTO){
         Borough borough = Borough.findByName(filterDTO.getBoroughFilter());
         Cuisine cuisine = Cuisine.findByName(filterDTO.getCuisineFilter());
+
         List<Restaurant> restaurants = restaurantRepository.findAll();
         List<Restaurant> restaurantsByBorough = null;
         List<Restaurant> restaurantsByCuisine = null;
@@ -90,6 +79,8 @@ public class RestaurantService {
                     .filter(restaurantsByCuisine::contains)
                     .collect(Collectors.toList());
         }
-        return restaurants;
+
+        Optional<List<Restaurant>> optionalRestaurantList = Optional.ofNullable(restaurants).filter(Predicate.not(restaurants::isEmpty));
+
     }
 }

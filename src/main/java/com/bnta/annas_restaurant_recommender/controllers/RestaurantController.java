@@ -20,13 +20,27 @@ public class RestaurantController {
 
     //    INDEX
     @GetMapping
-    public ResponseEntity<List<Restaurant>> getRestaurants(@RequestParam(required = false, name = "borough") String borough, @RequestParam(required = false, name = "cuisine") String cuisines) {
+    public ResponseEntity<Optional<List<Restaurant>>> getRestaurants(@RequestParam(required = false, name = "borough") String borough, @RequestParam(required = false, name = "cuisine") String cuisine) {
 
         FilterDTO filterDTO = new FilterDTO();
         filterDTO.setBoroughFilter(borough);
-        filterDTO.setCuisineFilter(cuisines);
+        filterDTO.setCuisineFilter(cuisine);
 
-        return new ResponseEntity<>(restaurantService.getRestaurantsByFilters(filterDTO),HttpStatus.OK);
+//        Cuisine isCuisine = Cuisine.findByName(cuisine);
+//        Borough isBorough = Borough.findByName(borough);
+        Optional<List<Restaurant>> restaurants = restaurantService.getRestaurantsByFilters(filterDTO);
+
+        if (!restaurants.isPresent()) {
+            return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+
+        } else {
+            return new ResponseEntity<>(restaurants, HttpStatus.OK);
+        }
+
+//        if (!Borough.findByName(borough).getBoroughName().equalsIgnoreCase(borough)){
+//            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
+//        }
+
 
         // /restaurants?borough
         // filters from request parameters
@@ -35,47 +49,6 @@ public class RestaurantController {
         // if borough matches, return restaurants
         // else return error
         // if request parameters does not exist return all restaurants
-
-//        TODO logic with DTO if parameter exists change filterDTO to true or false, need to refactor in the end adding logic to RestaurantService
-//        Change which ever DTO property has been entered as a request parameter
-//        Checks borough
-
-
-
-//        boolean invalidUrl = false;
-//        if (borough != null) {
-//            Borough foundBorough = Borough.findByName(borough);
-//            if (foundBorough != null) {
-//                filterDTO.setBoroughFilter(foundBorough);
-////                        new ResponseEntity<>(restaurantService.getRestaurantsByBorough(foundBorough), HttpStatus.OK);
-//            } else {
-//                invalidUrl = true;
-//            }
-//        }
-////        Checks cuisine
-//        if (cuisines != null) {
-//            for (String cuisine : cuisines){
-//                Cuisine foundCuisine = Cuisine.findByName(cuisine);
-//                List<Cuisine> foundCuisines = new ArrayList<>();
-//                if (foundCuisine != null) {
-//                    foundCuisines.add(foundCuisine);
-//                    filterDTO.setCuisineFilter(foundCuisines);
-//                    return new ResponseEntity<>(restaurantService.getRestaurantByCuisine(cuisines),HttpStatus.OK);
-//                } else {
-//                    invalidUrl = true;
-//                }
-//            }
-//
-//// Still need to add response entity for cuisine filter
-//        }
-//
-//        if (invalidUrl){
-//            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
-//        }
-//        else {
-//            return new ResponseEntity<>(restaurantService.findAllRestaurants(), HttpStatus.OK);
-//        }
-
 
     }
 
