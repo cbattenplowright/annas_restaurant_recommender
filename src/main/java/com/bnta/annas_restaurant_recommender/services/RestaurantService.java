@@ -57,9 +57,9 @@ public class RestaurantService {
         restaurantRepository.deleteById(id);
     }
 
-    public List<Restaurant> getRestaurantsByBorough(Borough borough){
-        return restaurantRepository.findByBorough(borough);
-    }
+//    public List<Restaurant> getRestaurantsByBorough(Borough borough){
+//        return restaurantRepository.findByBorough(borough);
+//    }
 
 //    public List<Restaurant> getRestaurantByCuisine(List<String> cuisines){
 //        List<Cuisine> cuisines
@@ -72,7 +72,12 @@ public class RestaurantService {
 //    }
 
     public List<Restaurant> getRestaurantsByFilters(FilterDTO filterDTO){
-
+        Borough borough = Borough.findByName(filterDTO.getBoroughFilter());
+        Cuisine cuisine = Cuisine.findByName(filterDTO.getCuisineFilter());
+        return restaurantRepository.findByDishesCuisine(cuisine);
+//        return restaurantRepository.findByBorough(borough);
     }
+
+
 
 }

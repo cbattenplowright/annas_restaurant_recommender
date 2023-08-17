@@ -20,16 +20,14 @@ public class RestaurantController {
 
     //    INDEX
     @GetMapping
-    public ResponseEntity<List<Restaurant>> getRestaurants(@RequestParam(required = false, name = "borough") String borough, @RequestParam(required = false, name = "cuisine") List<String> cuisines) {
+    public ResponseEntity<List<Restaurant>> getRestaurants(@RequestParam(required = false, name = "borough") String borough, @RequestParam(required = false, name = "cuisine") String cuisines) {
 
         FilterDTO filterDTO = new FilterDTO();
-        Borough foundBorough = Borough.findByName(borough);
-        filterDTO.setBoroughFilter(foundBorough);
-        List<Cuisine> foundCuisines = new ArrayList<>();
-        for (String cuisine : cuisines){
-            Cuisine foundCuisine = Cuisine.findByName(cuisine);
-            foundCuisines.add(foundCuisine);
-        }
+        filterDTO.setBoroughFilter(borough);
+        filterDTO.setCuisineFilter(cuisines);
+
+
+        return new ResponseEntity<>(restaurantService.getRestaurantsByFilters(filterDTO),HttpStatus.OK);
 
 
 

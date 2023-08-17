@@ -8,11 +8,11 @@ public class FilterDTO {
     private Boolean halalFilter;
     private Boolean dairyFreeFilter;
     private Boolean veganFilter;
-    private Borough boroughFilter;
-    private List<Cuisine> cuisineFilter;
+    private String boroughFilter;
+    private String cuisineFilter;
     private PriceRange priceRangeFilter;
 
-    public FilterDTO(boolean vegetarianFilter, boolean halalFilter, boolean dairyFreeFilter, boolean veganFilter, Borough boroughFilter, List<Cuisine> cuisineFilter, PriceRange priceRangeFilter) {
+    public FilterDTO(Boolean vegetarianFilter, Boolean halalFilter, Boolean dairyFreeFilter, Boolean veganFilter, String boroughFilter, String cuisineFilter, PriceRange priceRangeFilter) {
         this.vegetarianFilter = vegetarianFilter;
         this.halalFilter = halalFilter;
         this.dairyFreeFilter = dairyFreeFilter;
@@ -21,6 +21,7 @@ public class FilterDTO {
         this.cuisineFilter = cuisineFilter;
         this.priceRangeFilter = priceRangeFilter;
     }
+
 
     public FilterDTO(){}
 
@@ -58,19 +59,19 @@ public class FilterDTO {
         this.veganFilter = veganFilter;
     }
 
-    public Borough getBoroughFilter() {
+    public String getBoroughFilter() {
         return boroughFilter;
     }
 
-    public void setBoroughFilter(Borough boroughFilter) {
+    public void setBoroughFilter(String boroughFilter) {
         this.boroughFilter = boroughFilter;
     }
 
-    public List<Cuisine> getCuisineFilter() {
+    public String getCuisineFilter() {
         return cuisineFilter;
     }
 
-    public void setCuisineFilter(List<Cuisine> cuisineFilter) {
+    public void setCuisineFilter(String cuisineFilter) {
         this.cuisineFilter = cuisineFilter;
     }
 
