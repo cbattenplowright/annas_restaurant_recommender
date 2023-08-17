@@ -1,12 +1,11 @@
 # Anna's Restaurant Recommender - ARE YOU HUNGRY? JUST SEARCH 
-
 ## Description
-This is a data API project which recommends London restaurants based on location (borough), cuisine and dish. 
+This is a data API project which recommends London restaurants based on location (borough), cuisine and dish.
 
 
 ## MVP
 
-The MVP have the CRUD functionality that enable the user to:
+Each model - Restaurant and Dish - have REST controllers that provide basic CRUD functionality:
 
 **For Restaurants:**
 - Create a new restaurant 
@@ -22,13 +21,42 @@ The MVP have the CRUD functionality that enable the user to:
 - Delete a dish
 
 **Filtering**
-The user is able to get a list of restaurants based on a given borough and a given cuisine. The names of those are already defined in the following ENUM files:
+
+As part of the MVP, the user is also able to get a list of restaurants based on a given borough and a given cuisine. The names of those are already defined in the following ENUM files:
 
 - Boroughs: annas_restaurant_recommender/models/Borough.java
 - Cuisines: annas_restaurant_recommender/models/Cuisine.java
 
-In order to do the filtering you ONLY can use the values showed in these files.
+In order to do the filtering you ONLY can use the values showed in those files.
 
+## Setup instructions
+To access the endpoints of the program, use https://localhost:{port}/{endpoint} - the default port is 8080 but any can be used.
+
+## The RESTful route endpoints:
+
+The REST controllers provide GET, POST, PUT and DELETE routes as well as routes to obtain a list of restaurants filtered by borough, by restaurant and any combination of both.
+
+
+### GET
+- `localhost:8080/restaurants`
+- `localhost:8080/restaurants?borough={boroughName}`
+- `localhost:8080/restaurants?cuisine={cuisineName}`
+- `localhost:8080/restaurants?cuisine={cuisineName}&borough={boroughName}`
+- `localhost:8080/restaurants/{id}`
+- `localhost:8080/dishes`
+- `localhost:8080/dishes/{id}`
+
+### POST
+- `localhost:8080/restaurants`
+- `localhost:8080/dishes`
+
+### PUT
+- `localhost:8080/restaurants/{id}`
+
+
+### DELETE
+- `localhost:8080/restaurants/{id}`
+- `localhost:8080/dishes/{id}`
 
 ## Extensions
 - Filter by price range, dietary requirements, rating
@@ -38,36 +66,11 @@ In order to do the filtering you ONLY can use the values showed in these files.
 - Create recommendations (“close match”) list based on previous filters selected
 
 
-## Setup instructions
-To access the endpoints of the program, use https://localhost:{port}/{endpoint} - the default port is 8080 but any can be used.
-
-Each model - Restaurant and Dish - have REST controllers that provide basic CRUD functionality, specifically Get, Post, Put, and Delete routes. 
-
-## The RESTful route endpoints:
-
-### GET
-- localhost:8080/restaurants
-- localhost:8080/restaurants?borough={boroughName}
-- localhost:8080/restaurants?cuisine={cuisineName}
-- localhost:8080/restaurants?cuisine={cuisineName}&borough={boroughName}
-- localhost:8080/restaurants/{id}
-- localhost:8080/dishes
-- localhost:8080/dishes/{id}
-
-### POST
-- localhost:8080/restaurants
-- localhost:8080/dishes
-
-### PUT
-- localhost:8080/restaurants/{id}
-
-
-### DELETE
-- localhost:8080/restaurants/{id}
-- localhost:8080/dishes/{id}
-
 ## Entity Relationship Diagram
+<img src =".src/main/resources/diagrams/RestaurantRecommendation_ERD.png" alt= "entity relationship diagram"/>
 
+## Class Diagram
+<img src ="./src/main/resources/diagrams/RestaurantRecommendation_Class Diagram.png" alt= "class diagram"/>
 
 
 ## Tech Stack
