@@ -28,10 +28,6 @@ public class RestaurantController {
 
         return new ResponseEntity<>(restaurantService.getRestaurantsByFilters(filterDTO),HttpStatus.OK);
 
-
-
-
-
         // /restaurants?borough
         // filters from request parameters
         // check if request parameters exist

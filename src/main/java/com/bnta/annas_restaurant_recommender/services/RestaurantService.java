@@ -10,6 +10,7 @@ import javax.print.ServiceUI;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class RestaurantService {
@@ -74,17 +75,21 @@ public class RestaurantService {
     public List<Restaurant> getRestaurantsByFilters(FilterDTO filterDTO){
         Borough borough = Borough.findByName(filterDTO.getBoroughFilter());
         Cuisine cuisine = Cuisine.findByName(filterDTO.getCuisineFilter());
-
-        if (borough != null && cuisine == null) {
-            return restaurantRepository.findByBorough(borough);
-        } else if (cuisine != null && borough == null) {
-            return restaurantRepository.findByDishesCuisine(cuisine);
-        } else {
-            return restaurantRepository.findAll();
+        List<Restaurant> restaurants = restaurantRepository.findAll();
+        List<Restaurant> restaurantsByBorough = null;
+        List<Restaurant> restaurantsByCuisine = null;
+        if (borough != null) {
+            restaurantsByBorough = restaurantRepository.findByBorough(borough);
+            restaurants = restaurants.stream()
+                    .filter(restaurantsByBorough::contains)
+                    .collect(Collectors.toList());
         }
-
+        if (cuisine != null) {
+            restaurantsByCuisine = restaurantRepository.findByDishesCuisine(cuisine);
+            restaurants = restaurants.stream()
+                    .filter(restaurantsByCuisine::contains)
+                    .collect(Collectors.toList());
+        }
+        return restaurants;
     }
-
-
-
 }
