@@ -43,10 +43,10 @@ public enum Cuisine {
         } return null;
     }
 
-    public static Cuisine findByName(String name){
+    public static Cuisine findByName(String cuisineName){
         Cuisine result = null;
         for (Cuisine cuisine : values()){
-            if (cuisine.name().equalsIgnoreCase(name)){
+            if (cuisine.name().equalsIgnoreCase(cuisineName)){
                 result = cuisine;
                 break;
             }

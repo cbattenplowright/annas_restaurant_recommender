@@ -65,11 +65,11 @@ public class DishDTO {
         this.halal = halal;
     }
 
-    public String getCuisineNames() {
+    public String getCuisineName() {
         return cuisineName;
     }
 
-    public void setCuisineNames(String cuisineNames) {
+    public void setCuisineName(String cuisineName) {
         this.cuisineName = cuisineName;
     }
 }

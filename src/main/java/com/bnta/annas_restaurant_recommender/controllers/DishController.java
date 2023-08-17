@@ -42,8 +42,8 @@ public class DishController {
     //    CREATE
     @PostMapping
     public ResponseEntity<Dish> addDish(@RequestBody DishDTO dishDTO) {
-        List<Cuisine> findCuisine = dishService.checkCuisineExists(dishDTO);
-        if (findCuisine.contains(null)) {
+        Cuisine findCuisine = dishService.checkCuisineExists(dishDTO);
+        if (findCuisine == null) {
             return new ResponseEntity<>(null, HttpStatus.UNPROCESSABLE_ENTITY);
         } else {
             return new ResponseEntity<>(dishService.saveDish(dishDTO), HttpStatus.CREATED);

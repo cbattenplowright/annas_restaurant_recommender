@@ -35,10 +35,7 @@ public class DishService {
 //        get cuisines by cuisine ids
 //        add that cuisine list to Dish
 
-        List<Cuisine> cuisineList = new ArrayList<>();
-        for (String cuisineName : dishDTO.getCuisineNames()) {
-            cuisineList.add(Cuisine.valueFromDisplayCuisineName(cuisineName));
-        }
+        Cuisine cuisine = Cuisine.valueFromDisplayCuisineName(dishDTO.getCuisineName());
 
         Dish newDish = new Dish(
                 dishDTO.getName(),
@@ -46,7 +43,7 @@ public class DishService {
                 dishDTO.isVegan(),
                 dishDTO.isDairyFree(),
                 dishDTO.isHalal(),
-                cuisineList);
+                cuisine);
 
         dishRepository.save(newDish);
         return newDish;
@@ -60,11 +57,8 @@ public class DishService {
         dishRepository.delete(dish);
     }
 
-    public List<Cuisine> checkCuisineExists(DishDTO dishDTO) {
-        List<Cuisine> findCuisine = new ArrayList<>();
-        for (String cuisineName : dishDTO.getCuisineNames()) {
-            findCuisine.add(Cuisine.findByName(cuisineName));
-        }
+    public Cuisine checkCuisineExists(DishDTO dishDTO) {
+        Cuisine findCuisine = Cuisine.findByName(dishDTO.getCuisineName());
         return findCuisine;
     }
 
