@@ -26,7 +26,6 @@ public class RestaurantController {
         filterDTO.setBoroughFilter(borough);
         filterDTO.setCuisineFilter(cuisines);
 
-
         return new ResponseEntity<>(restaurantService.getRestaurantsByFilters(filterDTO),HttpStatus.OK);
 
 

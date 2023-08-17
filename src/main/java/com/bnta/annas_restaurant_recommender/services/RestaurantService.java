@@ -74,8 +74,15 @@ public class RestaurantService {
     public List<Restaurant> getRestaurantsByFilters(FilterDTO filterDTO){
         Borough borough = Borough.findByName(filterDTO.getBoroughFilter());
         Cuisine cuisine = Cuisine.findByName(filterDTO.getCuisineFilter());
-        return restaurantRepository.findByDishesCuisine(cuisine);
-//        return restaurantRepository.findByBorough(borough);
+
+        if (borough != null && cuisine == null) {
+            return restaurantRepository.findByBorough(borough);
+        } else if (cuisine != null && borough == null) {
+            return restaurantRepository.findByDishesCuisine(cuisine);
+        } else {
+            return restaurantRepository.findAll();
+        }
+
     }
 
 
