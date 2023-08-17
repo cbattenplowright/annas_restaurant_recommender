@@ -23,6 +23,17 @@ public class RestaurantController {
     public ResponseEntity<List<Restaurant>> getRestaurants(@RequestParam(required = false, name = "borough") String borough, @RequestParam(required = false, name = "cuisine") List<String> cuisines) {
 
         FilterDTO filterDTO = new FilterDTO();
+        Borough foundBorough = Borough.findByName(borough);
+        filterDTO.setBoroughFilter(foundBorough);
+        List<Cuisine> foundCuisines = new ArrayList<>();
+        for (String cuisine : cuisines){
+            Cuisine foundCuisine = Cuisine.findByName(cuisine);
+            foundCuisines.add(foundCuisine);
+        }
+
+
+
+
 
         // /restaurants?borough
         // filters from request parameters

@@ -61,14 +61,18 @@ public class RestaurantService {
         return restaurantRepository.findByBorough(borough);
     }
 
-    public List<Restaurant> getRestaurantByCuisine(List<String> cuisines){
-        List<Cuisine> cuisines
-        for (String cuisine: cuisines){
-            Cuisine.findByName(cuisine);
-        }
-        List<Dish> dishes = restaurantRepository.findByDishesCuisines(cuisines);
-        List<Restaurant> listOfRestaurants = restaurantRepository.findByDishes(dishes);
-        return listOfRestaurants;
+//    public List<Restaurant> getRestaurantByCuisine(List<String> cuisines){
+//        List<Cuisine> cuisines
+//        for (String cuisine: cuisines){
+//            Cuisine.findByName(cuisine);
+//        }
+//        List<Dish> dishes = restaurantRepository.findByDishesCuisines(cuisines);
+//        List<Restaurant> listOfRestaurants = restaurantRepository.findByDishes(dishes);
+//        return listOfRestaurants;
+//    }
+
+    public List<Restaurant> getRestaurantsByFilters(FilterDTO filterDTO){
+
     }
 
 }
