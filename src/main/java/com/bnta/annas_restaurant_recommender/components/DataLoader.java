@@ -25,19 +25,19 @@ public class DataLoader implements ApplicationRunner{
     @Override
     public void run(ApplicationArguments args) throws Exception {
 
-        Dish dish1 = new Dish("Sushi", false, false, true, true, List.of(Cuisine.JAPANESE));
-        Dish dish2 = new Dish("Spaghetti Bolognese", false, false, false, true, List.of(Cuisine.ITALIAN));
-        Dish dish3 = new Dish("Tacos", false, false, true, false, List.of(Cuisine.MEXICAN));
-        Dish dish4 = new Dish("Siu Mai", false, false, true, false, List.of(Cuisine.CHINESE));
-        Dish dish5 = new Dish("Margherita Pizza", true, false, false, true, List.of(Cuisine.ITALIAN));
-        Dish dish6 = new Dish("Grass", true, true, true, true, List.of(Cuisine.MEDITERRANEAN));
-        Dish dish7 = new Dish("Fish and Chips", false, false, true, true, List.of(Cuisine.BRITISH));
-        Dish dish8 = new Dish("Lamb Biryani", false, false, false, true, List.of(Cuisine.PAKISTANI));
-        Dish dish9 = new Dish("Hawaiian Pizza", false, false, false, false, List.of(Cuisine.AMERICAN, Cuisine.ITALIAN));
-        Dish dish10 = new Dish("Burrito", false, false, false, false, List.of(Cuisine.AMERICAN, Cuisine.MEXICAN));
-        Dish dish11 = new Dish("Chicken Souvlaki Banh Mi", false, false, false, true, List.of(Cuisine.GREEK, Cuisine.VIETNAMESE));
-        Dish dish12 = new Dish("Chicken wings and chips", false, false, false, true, List.of(Cuisine.BRITISH, Cuisine.AMERICAN));
-        Dish dish13 = new Dish("Wagyu Burger and chips", false, false, false, true, List.of(Cuisine.JAPANESE, Cuisine.AMERICAN));
+        Dish dish1 = new Dish("Sushi", false, false, true, true, Cuisine.JAPANESE);
+        Dish dish2 = new Dish("Spaghetti Bolognese", false, false, false, true, Cuisine.ITALIAN);
+        Dish dish3 = new Dish("Tacos", false, false, true, false, Cuisine.MEXICAN);
+        Dish dish4 = new Dish("Siu Mai", false, false, true, false, Cuisine.CHINESE);
+        Dish dish5 = new Dish("Margherita Pizza", true, false, false, true,Cuisine.ITALIAN);
+        Dish dish6 = new Dish("Grass", true, true, true, true, Cuisine.MEDITERRANEAN);
+        Dish dish7 = new Dish("Fish and Chips", false, false, true, true, Cuisine.BRITISH);
+        Dish dish8 = new Dish("Lamb Biryani", false, false, false, true, Cuisine.PAKISTANI);
+        Dish dish9 = new Dish("Hawaiian Pizza", false, false, false, false, Cuisine.AMERICAN);
+        Dish dish10 = new Dish("Burrito", false, false, false, false, Cuisine.MEXICAN);
+        Dish dish11 = new Dish("Chicken Souvlaki Banh Mi", false, false, false, true,Cuisine.GREEK);
+        Dish dish12 = new Dish("Chicken wings and chips", false, false, false, true, Cuisine.BRITISH);
+        Dish dish13 = new Dish("Wagyu Burger and chips", false, false, false, true, Cuisine.JAPANESE);
 
         dishRepository.saveAll(List.of(dish1, dish2, dish3, dish4, dish5, dish6, dish7, dish8, dish9, dish10, dish11, dish12, dish13));
 

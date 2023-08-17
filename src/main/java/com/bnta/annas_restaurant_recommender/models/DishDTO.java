@@ -9,19 +9,18 @@ public class DishDTO {
     private boolean vegan;
     private boolean dairyFree;
     private boolean halal;
-    private List<String> cuisineNames;
+    private String cuisineName;
 
-    public DishDTO(String name, boolean vegetarian, boolean vegan, boolean dairyFree, boolean halal, List<String> cuisineNames) {
+    public DishDTO(String name, boolean vegetarian, boolean vegan, boolean dairyFree, boolean halal, String cuisineName) {
         this.name = name;
         this.vegetarian = vegetarian;
         this.vegan = vegan;
         this.dairyFree = dairyFree;
         this.halal = halal;
-        this.cuisineNames = cuisineNames;
+        this.cuisineName = cuisineName;
     }
 
     public DishDTO(){
-
     }
 
     //    GETTERS AND SETTERS
@@ -66,11 +65,11 @@ public class DishDTO {
         this.halal = halal;
     }
 
-    public List<String> getCuisineNames() {
-        return cuisineNames;
+    public String getCuisineName() {
+        return cuisineName;
     }
 
-    public void setCuisineNames(List<String> cuisineNames) {
-        this.cuisineNames = cuisineNames;
+    public void setCuisineName(String cuisineName) {
+        this.cuisineName = cuisineName;
     }
 }

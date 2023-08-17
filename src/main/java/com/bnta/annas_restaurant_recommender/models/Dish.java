@@ -29,19 +29,20 @@ public class Dish {
     @Column
     private boolean halal;
 
-    private List<Cuisine> cuisines;
+    @Enumerated(EnumType.STRING)
+    private Cuisine cuisine;
 
     @JsonIgnoreProperties({"dishes"})
     @ManyToMany(mappedBy = "dishes")
     private List<Restaurant> restaurants;
 
-    public Dish(String name, boolean vegetarian, boolean vegan, boolean dairyFree, boolean halal, List<Cuisine> cuisines) {
+    public Dish(String name, boolean vegetarian, boolean vegan, boolean dairyFree, boolean halal, Cuisine cuisine) {
         this.name = name;
         this.vegetarian = vegetarian;
         this.vegan = vegan;
         this.dairyFree = dairyFree;
         this.halal = halal;
-        this.cuisines = cuisines;
+        this.cuisine = cuisine;
     }
 
     public Dish(){
@@ -98,12 +99,12 @@ public class Dish {
         this.halal = halal;
     }
 
-    public List<Cuisine> getCuisines() {
-        return cuisines;
+    public Cuisine getCuisines() {
+        return cuisine;
     }
 
-    public void setCuisines(List<Cuisine> cuisines) {
-        this.cuisines = cuisines;
+    public void setCuisines(Cuisine cuisine) {
+        this.cuisine = cuisine;
     }
 
     public List<Restaurant> getRestaurants() {
