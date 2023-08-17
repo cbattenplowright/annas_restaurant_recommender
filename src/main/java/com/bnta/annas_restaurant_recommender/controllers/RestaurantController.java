@@ -26,15 +26,14 @@ public class RestaurantController {
         filterDTO.setBoroughFilter(borough);
         filterDTO.setCuisineFilter(cuisine);
 
-//        Cuisine isCuisine = Cuisine.findByName(cuisine);
-//        Borough isBorough = Borough.findByName(borough);
+
         List<Restaurant> restaurants = restaurantService.getRestaurantsByFilters(filterDTO);
+//        if (restaurants.isEmpty()){
+//            return new ResponseEntity<>(restaurants, HttpStatus.OK);
+//        }
         return new ResponseEntity<>(restaurants, HttpStatus.OK);
 
 
-//        if (!Borough.findByName(borough).getBoroughName().equalsIgnoreCase(borough)){
-//            return new ResponseEntity<>(null, HttpStatus.BAD_REQUEST);
-//        }
 
 
         // /restaurants?borough

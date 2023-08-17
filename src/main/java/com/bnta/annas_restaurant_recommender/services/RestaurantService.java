@@ -59,29 +59,25 @@ public class RestaurantService {
         restaurantRepository.deleteById(id);
     }
 
-
     public List<Restaurant> getRestaurantsByFilters(FilterDTO filterDTO){
         Borough borough = Borough.findByName(filterDTO.getBoroughFilter());
         Cuisine cuisine = Cuisine.findByName(filterDTO.getCuisineFilter());
 
         List<Restaurant> restaurants = restaurantRepository.findAll();
-        List<Restaurant> restaurantsByBorough = null;
-        List<Restaurant> restaurantsByCuisine = null;
+        // findByBoroughAndDishesCuisine() <- this derived method needs to be in restaurantRepository
 
-        if (borough != null) {
-            restaurantsByBorough = restaurantRepository.findByBorough(borough);
-            restaurants = restaurants.stream()
-                    .filter(restaurantsByBorough::contains)
-                    .collect(Collectors.toList());
-        }
-        if (cuisine != null) {
-            restaurantsByCuisine = restaurantRepository.findByDishesCuisine(cuisine);
-            restaurants = restaurants.stream()
-                    .filter(restaurantsByCuisine::contains)
-                    .collect(Collectors.toList());
+        if (borough != null && cuisine != null) {
+            restaurants = restaurantRepository.findByBoroughAndDishesCuisine(borough, cuisine);
+
+        } else if (cuisine != null) {
+            restaurants = restaurantRepository.findByDishesCuisine(cuisine);
+
+        } else if (borough != null) {
+            restaurants = restaurantRepository.findByBorough(borough);
         }
 
         return restaurants;
-
     }
 }
+
+
