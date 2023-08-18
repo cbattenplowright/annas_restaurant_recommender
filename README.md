@@ -1,7 +1,8 @@
 # Anna's Restaurant Recommender - ARE YOU HUNGRY? JUST SEARCH 
 ## Description
-This is a data API project which recommends London restaurants based on location (borough), cuisine and dish.
+This is a data API project which recommends London restaurants based on location and cuisine. Each restaurant contains a borough, cuisine, price range and rating (out of 5), as well as a list of dishes that are served. Dishes are characterised by whether they meet certain dietary requirements, such as being halal or vegetarian. 
 
+The program allows for the user to be recommended restaurants based on their borough or choice, cuisine of choice, or both borough and cuisine at once. 
 
 ## MVP
 
