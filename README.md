@@ -30,7 +30,7 @@ As part of the MVP, the user is also able to get a list of restaurants based on 
 In order to do the filtering you ONLY can use the values showed in those files.
 
 ## Setup instructions
-To access the endpoints of the program, use https://localhost:{port}/{endpoint} - the default port is 8080 but any can be used.
+To access the endpoints of the program, use https://localhost:{port}/{endpoint} - the default port is 8080 but any can be used.  
 
 ## The RESTful route endpoints:
 
@@ -67,7 +67,7 @@ The REST controllers provide GET, POST, PUT and DELETE routes as well as routes 
 
 
 ## Entity Relationship Diagram
-<img src =".src/main/resources/diagrams/RestaurantRecommendation_ERD.png" alt= "entity relationship diagram"/>
+<img src = "./src/main/resources/diagrams/RestaurantRecommendation_ERD.png" alt= "entity relationship diagram"/>
 
 ## Class Diagram
 <img src ="./src/main/resources/diagrams/RestaurantRecommendation_Class Diagram.png" alt= "class diagram"/>
