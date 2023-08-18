@@ -34,7 +34,7 @@ To access the endpoints of the program, use https://localhost:{port}/{endpoint} 
 
 ## The RESTful route endpoints:
 
-The REST controllers provide GET, POST, PUT and DELETE routes as well as routes to obtain a list of restaurants filtered by borough, by restaurant and any combination of both.
+The REST controllers provide GET, POST, PUT and DELETE routes as well as routes to obtain a list of restaurants filtered by borough, by cuisine and any combination of both.
 
 
 ### GET
@@ -84,8 +84,8 @@ The technologies used for this project are:
 
 ## Dependencies
 
-- SpringBoot Starter Web
-- SpringBoot Devtools
+- SpringBoot Web
+- SpringBoot DevTools
 - PostgreSQL
 - SpringBoot Starter Data JPA
 
@@ -97,17 +97,3 @@ The technologies used for this project are:
 - Muhammad Faran Sarwar
 - Sandra Martinez Dominguez
 - Yihang Chen
-
-
-Checklist:
-A high-level description of the project's aims
-The names and versions of any libraries used            DONE
-Step-by-step setup instructions 
-Links to any relevant diagrams such as ERDs or class diagrams
-A full list of example routes (or a link to one) including:         Done
-Full urls including placeholders for variables (localhost:8080/users/:id)           Done
-Permitted requests for each route (GET, POST, etc)          Done
-Examples of permitted requests where appropriate            Done
-Examples of responses 
-Routes should be organised by route and not by request method
-Details of the project's MVP and any extensions covered, or a link to it
