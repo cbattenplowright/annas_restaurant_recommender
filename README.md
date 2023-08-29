@@ -31,7 +31,7 @@ As part of the MVP, the user is also able to get a list of restaurants based on 
 In order to do the filtering you ONLY can use the values showed in those files.
 
 ## Setup instructions
-To access the endpoints of the program, use https://localhost:{port}/{endpoint} - the default port is 8080 but any can be used.  
+You should create a database 'restaurant_recommender'. This can be found in the following path: src/main/resources/application.properties. To access the endpoints of the program, use https://localhost:{port}/{endpoint} - the default port is 8080 but any can be used.  
 
 ## The RESTful route endpoints:
 
