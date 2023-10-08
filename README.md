@@ -28,16 +28,16 @@ The user is able to get a list of restaurants based on borough and cuisine. The 
 - Boroughs: `annas_restaurant_recommender/models/Borough.java`
 - Cuisines: `annas_restaurant_recommender/models/Cuisine.java`
 
-In order to for the filters to operate ONLY values from those enums can be used.
+In order for the filters to operate, ONLY values from those enums can be used.
 
 ## Setup instructions
 
 To set up the project you will need to:
 1. Install IntelliJ IDEA or another IDE that is suitable for JDK 17.
-2. Install postgreSQL.
+2. Install PostgreSQL.
 3. Clone the project repository from GitHub.
 4. Import the project into your IDE.
-5. Make a postgreSQL database on your system with the following command `createdb restaurant_recommender`. See the `application.properties` file for the path that the application requires to access the database 
+5. Make a PostgreSQL database on your system with the following command `createdb restaurant_recommender`. See the `application.properties` file for the path that the application requires to access the database 
 6. Run the project.
    
 You can then use the program through Postman or similar API platform with the various endpoints laid out below.
@@ -71,9 +71,8 @@ The default port the project will be run on is port 8080 but any can be used. Yo
 
 The technologies used for this project are:
 
-- Intelliji IDEA, running JDK 17
+- IntelliJ IDEA, running JDK 17
 - Spring Boot
-- H2 Server
 - Postman
 - Postico
 
@@ -84,6 +83,10 @@ The dependencies required for the project to run are:
 - SpringBoot DevTools
 - PostgreSQL
 - SpringBoot Starter Data JPA
+
+## Presentation
+More information about this project, the planning stage, endpoints and bugs we found and solve can be consulted [here](./src/main/resources/diagrams/backend_presentation.pdf)
+
 
 ## Collaborators
 
