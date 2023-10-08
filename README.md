@@ -65,7 +65,7 @@ The default port the project will be run on is port 8080 but any can be used. Yo
 <img src = "./src/main/resources/diagrams/RestaurantRecommendation_ERD.png" alt= "entity relationship diagram"/>
 
 ## Class Diagram
-<img src ="./src/main/resources/diagrams/RestaurantRecommendation_Class Diagram.png" alt= "class diagram"/>
+<img src ="src/main/resources/diagrams/RestaurantRecommendation_ClassDiagram.png" alt= "class diagram"/>
 
 ## Tech Stack
 
