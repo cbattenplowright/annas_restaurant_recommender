@@ -65,7 +65,7 @@ The default port the project will be run on is port 8080 but any can be used. Yo
 <img src = "./src/main/resources/diagrams/RestaurantRecommendation_ERD.png" alt= "entity relationship diagram"/>
 
 ## Class Diagram
-<img src ="./src/main/resources/diagrams/RestaurantRecommendation_Class Diagram.png" alt= "class diagram"/>
+<img src ="./src/main/resources/diagrams/RestaurantRecommendation_ClassDiagram.png" alt= "class diagram"/>
 
 ## Tech Stack
 
@@ -87,8 +87,8 @@ The dependencies required for the project to run are:
 
 ## Collaborators
 
-- Amelie Boyd-Shire
-- Callum-David Batten-Plowright
-- Muhammad Faran Sarwar
-- Sandra Martinez Dominguez
-- Yihang Chen
+- [Amelie Boyd-Shire](https://github.com/amelieboydshire)
+- [Callum-David Batten-Plowright](https://github.com/cbattenplowright)
+- [Muhammad Faran Sarwar](https://github.com/Faran71)
+- [Sandra Martinez Dominguez](https://github.com/sandramtzd)
+- [Yihang Chen](https://github.com/nehcobiy)
